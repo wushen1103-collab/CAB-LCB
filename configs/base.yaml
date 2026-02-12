@@ -1,0 +1,22 @@
+project: dti-conformal
+dataset: davis
+split: random   # random | cold_drug | cold_target | cold_pair
+seed: 42
+
+paths:
+  data_dir: data
+  runs_dir: runs
+  results_dir: results
+
+train:
+  batch_size: 256
+  lr: 1e-3
+  epochs: 50
+
+model:
+  name: graphdta   # placeholder,
+  ckpt: null
+
+uq:
+  method: none     # none | marginal_cp | group_cp | cluster_cp | cqr | mc_dropout | ensemble
+  alpha: 0.1
