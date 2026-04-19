@@ -1,4 +1,4 @@
-project: dti-conformal
+project: cas-lcb
 dataset: davis
 split: random   # random | cold_drug | cold_target | cold_pair
 seed: 42

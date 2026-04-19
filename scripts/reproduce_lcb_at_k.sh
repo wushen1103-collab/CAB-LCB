@@ -33,7 +33,7 @@ method2scheme = {
     "Fixed": "baseline_fixed(alpha=0.1)",
     "NaiveAutoSel": "search_autosel(alpha=0.1)",
     "CAS-LCB": "final_constrained_autosel",
-    "CAS-LCB-Bonf": "final_constrained_autosel_bonf",
+    "CAS-LCB-Bonferroni": "final_constrained_autosel_bonf",
 }
 
 with src.open("r", newline="") as fin, dst.open("w", newline="") as fout:

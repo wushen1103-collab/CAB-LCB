@@ -56,8 +56,8 @@ def intervals_path_for_method(run_dir: Path, method: str, choices: pd.DataFrame)
         p = run_dir / cp_subdir / "pred_intervals_test.csv.gz"
         return p
 
-    # CAS-LCB-Bonf: if a bonf-specific folder exists use it; else fall back to CAS-LCB's chosen cp
-    if method == "CAS-LCB-Bonf":
+    # CAS-LCB-Bonferroni: if a bonf-specific folder exists use it; else fall back to CAS-LCB's chosen cp
+    if method == "CAS-LCB-Bonferroni":
         # try to find any interval file under a path containing "bonf"
         bonf = sorted([p for p in run_dir.rglob("pred_intervals_test.csv.gz") if "bonf" in str(p).lower()])
         if len(bonf) >= 1:

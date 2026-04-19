@@ -31,7 +31,7 @@ def infer_method_from_cpdir(cp_subdir: str) -> str:
     if "naive" in s or "autosel" in s:
         return "NaiveAutoSel"
     if "cas" in s and "bonf" in s:
-        return "CAS-LCB-Bonf"
+        return "CAS-LCB-Bonferroni"
     if "cas" in s or "lcb" in s:
         return "CAS-LCB"
     if "tc_sc" in s or "tcsc" in s:

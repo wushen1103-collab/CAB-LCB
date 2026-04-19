@@ -25,11 +25,11 @@ def main():
     metrics_path = run_dir / "metrics.jsonl"
     record = {
         "time": datetime.now().isoformat(timespec="seconds"),
-        "stage": "smoke",
+        "record_type": "smoke_test",
         "dataset": cfg.get("dataset"),
         "split": cfg.get("split"),
         "seed": cfg.get("seed"),
-        "note": "dummy run to validate artifact contract"
+        "note": "dummy run to validate the run-output schema",
     }
     with open(metrics_path, "a", encoding="utf-8") as f:
         f.write(json.dumps(record, ensure_ascii=False) + "\n")
@@ -39,7 +39,7 @@ def main():
     with open(log_path, "a", encoding="utf-8") as f:
         f.write(f"[{record['time']}] dummy run ok: {run_dir}\n")
 
-    print(f"OK. Wrote artifacts to: {run_dir}")
+    print(f"OK. Wrote run outputs to: {run_dir}")
 
 if __name__ == "__main__":
     main()

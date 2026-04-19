@@ -142,7 +142,7 @@ def pick_interval_file(run_dir: Path, dataset: str, split: str, seed: int, metho
         # fallback: pick lexicographically stable
         return sorted(cand)[0]
 
-    if m == "CAS-LCB-Bonf":
+    if m == "CAS-LCB-Bonferroni":
         cand = [names[i] for i,s in enumerate(low) if "bonf" in s]
         if len(cand)==0:
             raise RuntimeError(f"Missing bonf cp_subdir under {run_dir}; have={names}")
@@ -183,7 +183,7 @@ def pick_interval_file(run_dir: Path, dataset: str, split: str, seed: int, metho
         pick = cand[0] if len(cand)==1 else resolve_ambiguous(cand)
         return run_dir / pick / "pred_intervals_test.csv.gz"
 
-    raise RuntimeError(f"Unsupported method={method}. Expected Fixed/NaiveAutoSel/CAS-LCB/CAS-LCB-Bonf/TC-SC/WSC-B")
+    raise RuntimeError(f"Unsupported method={method}. Expected Fixed/NaiveAutoSel/CAS-LCB/CAS-LCB-Bonferroni/TC-SC/WSC-B")
 
 def main():
     ap = argparse.ArgumentParser()

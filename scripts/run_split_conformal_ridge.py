@@ -116,11 +116,11 @@ def main() -> None:
     ap.add_argument("--exp_name", type=str, default=None)
     args = ap.parse_args()
 
-    exp_name = args.exp_name or f"day5_cp_ridge_{args.dataset}_{args.split}_seed{args.seed}_a{args.alpha}"
+    exp_name = args.exp_name or f"ridge_split_conformal_{args.dataset}_{args.split}_seed{args.seed}_a{args.alpha}"
     run_dir = make_run_dir("runs", exp_name)
 
     cfg = {
-        "stage": "split_conformal",
+        "pipeline": "ridge_split_conformal",
         "dataset": args.dataset,
         "split": args.split,
         "seed": args.seed,
@@ -140,7 +140,7 @@ def main() -> None:
     }
     save_yaml(cfg, run_dir / "config.yaml")
 
-    pbar = tqdm(total=10, desc="split_conformal", unit="step")
+    pbar = tqdm(total=10, desc="ridge_conformal", unit="phase")
     try:
         ds = PairDataset(root=args.data_root, dataset=args.dataset)
         df = ds.pairs

@@ -23,7 +23,7 @@ SCHEME_TO_METHOD = {
     "baseline_fixed(alpha=0.1)": "Fixed",
     "search_autosel(alpha=0.1)": "NaiveAutoSel",
     "final_constrained_autosel": "CAS-LCB",
-    "final_constrained_autosel_bonf": "CAS-LCB-Bonf",
+    "final_constrained_autosel_bonf": "CAS-LCB-Bonferroni",
 }
 
 def parse_key(run_dir_name: str):

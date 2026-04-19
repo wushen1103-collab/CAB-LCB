@@ -1,0 +1,47 @@
+# Large or generated artifacts (not tracked)
+runs/
+data/
+logs/
+results/
+isolated/
+dist/
+external_backbones/
+
+# Local automation or scratch space
+.codex_envs/
+.codex_work/
+.venv/
+.env
+.idea/
+.vscode/
+=
+
+# Python cache
+**/__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Model weights and checkpoints
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+
+# Compressed bundles and archives
+*.tgz
+*.tar.gz
+*.zip
+*.7z
+
+# Large intermediates
+*.csv.gz
+*.parquet
+*.feather
+*.pkl
+*.joblib
+*.npy
+*.npz
+
+# Generated audit helpers
+audit_deepdta_for_lcb.csv
+audit_graphdta_for_lcb.csv

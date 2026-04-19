@@ -36,7 +36,7 @@ except Exception as e:
     raise RuntimeError("scipy is required (for beta.ppf). Install scipy in this env.") from e
 
 
-METHODS_CANON = ["Fixed", "NaiveAutoSel", "CAS-LCB", "CAS-LCB-Bonf", "TC-SC", "WSC-B"]
+METHODS_CANON = ["Fixed", "NaiveAutoSel", "CAS-LCB", "CAS-LCB-Bonferroni", "TC-SC", "WSC-B"]
 
 
 def cp_lcb(x: int, n: int, delta: float) -> float:
@@ -227,7 +227,7 @@ def pick_interval_file(run_dir: Path, dataset: str, split: str, seed: int, metho
         # fallback: stable
         return sorted(cand)[0]
 
-    if m == "CAS-LCB-Bonf":
+    if m == "CAS-LCB-Bonferroni":
         cand = [names[i] for i, s in enumerate(low) if "bonf" in s]
         if not cand:
             raise RuntimeError(f"Missing bonf cp_subdir under {run_dir}; have={names}")
